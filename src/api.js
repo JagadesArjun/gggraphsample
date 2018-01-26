@@ -1,7 +1,7 @@
 async function api({startDate, endDate}, resp) {
 
     const method = 'GET';
-    const uri = `http://104.197.128.152/data/adrequests?from=${startDate}&to=${endDate}`;
+    const uri = `/data/adrequests?from=${startDate}&to=${endDate}`;
 
     const res = await fetch(uri, {
         method,
@@ -19,7 +19,7 @@ async function api({startDate, endDate}, resp) {
     let respError = null;
     let respSuccess = resBody;
     if (!res.ok) {
-        respError = resBody;
+        respError = 'Some error occurred';
         respSuccess = null;
     }
 
