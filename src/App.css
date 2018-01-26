@@ -1,28 +1,76 @@
 .App {
-  text-align: center;
+    height: 100%;
+    padding-top: 30px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.AppContainer {
+    width: 80%;
+    margin: auto;
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.button {
+    margin-top: 20px;
+    background-color: white;
+    border: 0px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #505048;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.timeline {
+    margin-top: 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
 }
 
-.App-intro {
-  font-size: large;
+
+.button:hover {
+    background-color: #ececec;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.options {
+    background-color: white;
+    border: 0px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #505048;
+    cursor: pointer;
+}
+
+.activePoint{
+    z-index: 1000;
+    margin: auto;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
 }
