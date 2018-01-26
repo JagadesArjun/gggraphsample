@@ -9,7 +9,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static('build'));
 
 app.get("/", function (req, res) {
-    res.sendFile('build/index.html')
+    res.sendFile(__dirname + 'build/index.html')
 });
 
 server.listen(app.get('port'), function () {
