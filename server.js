@@ -1,14 +1,8 @@
 const express = require('express');
 const path = require('path');
-var cors = require('cors');
-var bodyParser = require("body-parser");
 
 var app = express();
 var server = require('http').Server(app);
-
-app.use(bodyParser.json());
-
-app.use(cors());
 
 app.set('port', (process.env.PORT || 5000));
 
