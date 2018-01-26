@@ -25,7 +25,8 @@ class App extends Component {
             endDate: null,
             focusedInput: null,
             slide: 0,
-            limit: 'all'
+            limit: 'all',
+            loading: false
         };
 
         this.handlePointHover = this.handlePointHover.bind(this);
@@ -62,11 +63,13 @@ class App extends Component {
 
     getAdData({startDate, endDate}) {
         const {onChange} = this;
+        onChange({loading: true});
         api({startDate, endDate}, function (err, {body}) {
             if (!err) {
-                onChange({rawAdData: body.data});
+                onChange({rawAdData: body.data, loading: false});
             } else {
                 console.log(err);
+                onChange({rawAdData: body.data, loading: false});
                 alert("Error while loading data.");
             }
         })
@@ -101,7 +104,7 @@ class App extends Component {
     }
 
     render() {
-        const {activePoint, slide, rawAdData} = this.state;
+        const {activePoint, slide, rawAdData, loading} = this.state;
         const processedData = this.processData(rawAdData);
         return (
             <div className="App">
@@ -115,6 +118,7 @@ class App extends Component {
                         focusedInput={this.state.focusedInput}
                         onFocusChange={focusedInput => this.setState({focusedInput})}
                         isOutsideRange={() => false}
+                        noBorder={false}
                     />
                     <select className="options right" value={this.state.limit} onChange={this.handleLimitChange}>
                         <option value="all">All</option>
@@ -123,6 +127,14 @@ class App extends Component {
                         <option value={100}>100 per slide</option>
                     </select>
                 </div>
+
+                {loading &&
+                <div className="AppContainer"
+                     style={{display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
+                    <img style={{width: '50px', margin: 'auto'}}
+                         src="http://www.gordonsouthern.com/wp-content/plugins/add-twitter-feed/includes/images/reload.gif"/>
+                </div>
+                }
 
                 {processedData.length > 0 &&
                 <div className="AppContainer">
@@ -142,10 +154,10 @@ class App extends Component {
                         gridVisible={false}
                         labelsVisible={processedData[slide].length < 101}
                         labelsStepX={7}
-                        labelsColor="white"
-                        pathColor="white"
-                        pointsStrokeColor="white"
-                        areaColor="white"
+                        labelsColor="#505048"
+                        pathColor="#505048"
+                        pointsStrokeColor="#505048"
+                        areaColor="#505048"
                         pointsOnHover={this.handlePointHover}
                     />
                     <div>
@@ -164,7 +176,7 @@ class App extends Component {
 
                 {processedData.length === 0 &&
                 <div className="AppContainer">
-                    <p style={{color: 'white', margin: '10px'}}>No data</p>
+                    <p style={{color: 'black', margin: '10px'}}>No data</p>
                 </div>
                 }
             </div>

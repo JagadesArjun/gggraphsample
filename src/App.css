@@ -13,7 +13,7 @@
 
 .button {
     margin-top: 20px;
-    background-color: white;
+    background-color: #505048;
     border: 0px;
     padding-top: 10px;
     padding-left: 25px;
@@ -21,7 +21,7 @@
     padding-bottom: 10px;
     font-size: 20px;
     font-weight: bold;
-    color: #505048;
+    color: white;
     cursor: pointer;
     margin-left: 10px;
     margin-right: 10px;
@@ -30,23 +30,22 @@
 .timeline {
     margin-top: 20px;
     background-color: transparent;
-    border: 2px solid white;
+    border: 2px solid #505048;
     padding-top: 5px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 5px;
     font-size: 12px;
     font-weight: bold;
-    color: white;
+    color: #505048;
 }
 
-
 .button:hover {
-    background-color: #ececec;
+    background-color: #8d8d8d;
 }
 
 .options {
-    background-color: white;
+    background-color: #dddddd;
     border: 0px;
     padding-top: 10px;
     padding-left: 25px;
@@ -58,13 +57,14 @@
     cursor: pointer;
 }
 
-.activePoint{
+.activePoint {
     z-index: 1000;
     margin: auto;
     font-size: 14px;
     font-weight: bold;
-    color: white;
+    color: #505048;
     border-radius: 5px;
+    float: right;
 }
 
 .right {
@@ -73,4 +73,12 @@
 
 .left {
     float: left;
+}
+
+.DateInput_input {
+    background: #dddddd;
+}
+
+.DateRangePickerInput__withBorder {
+    border: 0px solid #cacccd
 }
